@@ -1,5 +1,5 @@
 import {TYPES,splitSharedText} from './domain.js';
-export const AI_DEFAULTS={mode:'service',base:'https://echo-ai-sxhznnhnqb.cn-hangzhou.fcapp.run',model:'qwen3.8-flash',embeddingModel:'text-embedding-v4',enabled:false,autoOrganize:false,autoReview:false,consentVersion:1};
+export const AI_DEFAULTS={mode:'service',base:'https://echo-ai-sxhznnhnqb.cn-hangzhou.fcapp.run',model:'qwen3.8-flash',embeddingModel:'text-embedding-v4',enabled:false,autoOrganize:false,autoReview:false,autoIndex:false,consentVersion:1};
 export const PROVIDER_BASE='https://dashscope.aliyuncs.com/compatible-mode/v1';
 export const clean=value=>String(value??'').trim();
 export function parseJSON(text){const s=clean(text).replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'');try{return JSON.parse(s)}catch{throw Error('模型没有返回有效的结构化结果，原始记录仍已保存。')}}
