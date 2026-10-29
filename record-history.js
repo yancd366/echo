@@ -11,3 +11,5 @@ export function removeCaptureAttachment(before,attachment,remainingAttachments){
 export function previousOrganizationSnapshot(history,index){for(let n=index-1;n>=0;n--)if(history[n].kind!=='ai_proposed')return history[n].snapshot;return null}
 
 export function needsOrganization(c){return Boolean(c.aiNeedsRefresh)||!['ai','user'].includes(c.understanding?.engine)}
+
+export function extractionCandidates(c,attachments,onlyId=null){return attachments.filter(a=>c.attachmentIds.includes(a.id)&&(!onlyId||a.id===onlyId)&&isTextExtractable(a)&&!a.extractedText)}
