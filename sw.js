@@ -1,5 +1,5 @@
 import {receiveShare} from './share-worker.js';
-const CACHE='echo-mobile-shell-v8-remember-device-20261029';
+const CACHE='echo-mobile-shell-v8-1-review-records-20261030';
 const FILES=['./','index.html','styles.css','app.js','domain.js','storage.js','intelligence.js','advanced.js','features-ui.js','record-ui.js','record-history.js','connection.js','credentials.js','account-session.js','account-client.js','account-ui.js','device-store.js','device-login.js','device-protocol.js','sync-protocol.js','sync-client.js','sync-ui.js','files.js','share-worker.js','manifest.webmanifest','assets/app-icon.svg','assets/icon-192.png','assets/icon-512.png','assets/ride.svg','assets/tools.svg','assets/knowledge.svg'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES.map(file=>new Request(file,{cache:'reload'})))).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('echo-mobile-shell-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
